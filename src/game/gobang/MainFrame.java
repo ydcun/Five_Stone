@@ -5,8 +5,6 @@ import java.awt.Color;
 import javax.swing.JFrame;
 /**
  * Îå×ÓÆå
- * @WangJB
- * @version 19:46 13/03/17
  */
 public class MainFrame extends JFrame{
     public static void main(String[] args) {
