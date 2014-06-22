@@ -4,12 +4,12 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JFrame;
 /**
- * Îå×ÓÆå
+ * äº”å­æ£‹
  */
 public class MainFrame extends JFrame{
     public static void main(String[] args) {
     	MainPanel panel = new MainPanel();
-		MainFrame frame = new MainFrame("Îå×ÓÆå");
+		MainFrame frame = new MainFrame("äº”å­æ£‹");
 		frame.setSize(680,680);
 	    panel.setBackground(Color.GRAY);
 		frame.add(panel,BorderLayout.CENTER);

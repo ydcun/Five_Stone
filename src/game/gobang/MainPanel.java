@@ -8,14 +8,12 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 /**
- * Îå×ÓÆåµÄÃæ°åÉè¼Æ
- * @author WangJB
- * @version 00.59 13/3/16
+ * äº”å­æ£‹çš„é¢æ¿è®¾è®¡
  */
 public class MainPanel extends Panel implements MouseListener{
-	private static final int COLUMN = 16;//ÁĞÊı
-	private static final int ROW = 16;//ĞĞÊı
-	private static final int GAP = 40;//¼ä¾à
+	private static final int COLUMN = 16;//åˆ—æ•°
+	private static final int ROW = 16;//è¡Œæ•°
+	private static final int GAP = 40;//é—´è·
 	private static boolean isBlack = true;
 	private static int click_X;
 	private static int click_Y;
@@ -29,11 +27,11 @@ public class MainPanel extends Panel implements MouseListener{
 		}
 	}
     public void paint(Graphics g){
-    	for(int i=0;i<ROW;i++){//»®ºáÏß
+    	for(int i=0;i<ROW;i++){//åˆ’æ¨ªçº¿
     		g.setColor(Color.BLACK);
     		g.drawLine(20, 20+i*GAP, 640-20, 20+i*GAP);
     	}
-    	for(int i=0;i<COLUMN;i++){//»®×İÏß
+    	for(int i=0;i<COLUMN;i++){//åˆ’çºµçº¿
     		g.setColor(Color.BLACK);
     		g.drawLine(20+i*GAP, 20, 20+i*GAP, 640-20);
     	}
@@ -52,31 +50,31 @@ public class MainPanel extends Panel implements MouseListener{
     		}
     	}
     }
-    public boolean isWin(int x,int y,boolean isColor){//ÅĞ¶ÏÊÇ·ñÎª5¸öÏàÍ¬µÄÆå×Ó£¬ÊÇ·µ»Øtrue£¬·ñ·µ»Øfalse
+    public boolean isWin(int x,int y,boolean isColor){//åˆ¤æ–­æ˜¯å¦ä¸º5ä¸ªç›¸åŒçš„æ£‹å­ï¼Œæ˜¯è¿”å›trueï¼Œå¦è¿”å›false
     	char ch=allChess[x][y];
-    	/*  ºáÏòÅĞ¶Ï    */
+    	/*  æ¨ªå‘åˆ¤æ–­    */
     	int RLastX = x;
-    	while(RLastX>=0 && allChess[RLastX][y]==ch){//ºáÏòÅĞ¶ÏÊÇ·ñµ½´ï5¸öÏàÍ¬µÄÆå×Ó
+    	while(RLastX>=0 && allChess[RLastX][y]==ch){//æ¨ªå‘åˆ¤æ–­æ˜¯å¦åˆ°è¾¾5ä¸ªç›¸åŒçš„æ£‹å­
     		RLastX --;
     	}
-        int RNum = 0;//Í³¼ÆºáÏòÏàÍ¬µÄÆå×ÓÊı
+        int RNum = 0;//ç»Ÿè®¡æ¨ªå‘ç›¸åŒçš„æ£‹å­æ•°
         RLastX ++; 
-    	while(RLastX<allChess.length && allChess[RLastX][y]==ch){//ºáÏòÅĞ¶ÏÊÇ·ñµ½´ï5¸öÏàÍ¬µÄÆå×Ó
+    	while(RLastX<allChess.length && allChess[RLastX][y]==ch){//æ¨ªå‘åˆ¤æ–­æ˜¯å¦åˆ°è¾¾5ä¸ªç›¸åŒçš„æ£‹å­
     		RNum ++;
     		RLastX ++;
     	}
-    	/* ×İÏòÅĞ¶Ï   */
+    	/* çºµå‘åˆ¤æ–­   */
     	int LLastY = y;
-    	while(LLastY>=0 && allChess[x][LLastY]==ch){//×İÏòÅĞ¶ÏÊÇ·ñµ½´ï5¸öÏàÍ¬µÄÆå×Ó
+    	while(LLastY>=0 && allChess[x][LLastY]==ch){//çºµå‘åˆ¤æ–­æ˜¯å¦åˆ°è¾¾5ä¸ªç›¸åŒçš„æ£‹å­
     		LLastY --;
     	}
-    	int LNum = 0;//Í³¼Æ×İÏòÏàÍ¬µÄÆå×ÓÊı
+    	int LNum = 0;//ç»Ÿè®¡çºµå‘ç›¸åŒçš„æ£‹å­æ•°
     	LLastY ++;
-    	while(LLastY<allChess[x].length && allChess[x][LLastY]==ch){//×İÏòÅĞ¶ÏÊÇ·ñµ½´ï5¸öÏàÍ¬µÄÆå×Ó
+    	while(LLastY<allChess[x].length && allChess[x][LLastY]==ch){//çºµå‘åˆ¤æ–­æ˜¯å¦åˆ°è¾¾5ä¸ªç›¸åŒçš„æ£‹å­
     		LLastY ++;
     		LNum ++;
     	}
-    	/* ×óÏÂÓÒÉÏÅĞ¶Ï  */
+    	/* å·¦ä¸‹å³ä¸Šåˆ¤æ–­  */
     	int LDLastX = x;
     	int RULastY = y;
     	while(LDLastX>=0 && RULastY<allChess.length && allChess[LDLastX][RULastY]==ch){
@@ -91,7 +89,7 @@ public class MainPanel extends Panel implements MouseListener{
     		LDLastX ++;
     		RULastY --;
     	}
-    	/* ×óÉÏÓÒÏÂÅĞ¶Ï  */
+    	/* å·¦ä¸Šå³ä¸‹åˆ¤æ–­  */
     	int RULastX = x;
     	int LDLastY = y;
     	while(RULastX>=0 && LDLastY>=0 && allChess[RULastX][LDLastY]==ch){
@@ -118,7 +116,7 @@ public class MainPanel extends Panel implements MouseListener{
 	    //System.out.println(e.getX());
 	    //e.getY();
 	}	
-	public void mousePressed(MouseEvent e) {//Êó±êµã»÷ÊÂ¼ş´¦Àí¹ı³Ì
+	public void mousePressed(MouseEvent e) {//é¼ æ ‡ç‚¹å‡»äº‹ä»¶å¤„ç†è¿‡ç¨‹
 		// TODO Auto-generated method stub
 		int click_x = e.getX();
 		int click_y = e.getY();
@@ -146,13 +144,13 @@ public class MainPanel extends Panel implements MouseListener{
 	    }
 	    System.out.println();
 	    if(isWin(chess_x,chess_y,isBlack)){
-	    	System.out.println("ÄãÓ®ÁË");
+	    	System.out.println("ä½ èµ¢äº†");
 	    }
 	    if(isWin(chess_x,chess_y,isBlack)){
 	    	if(isBlack){
-	    	    JOptionPane.showMessageDialog(null,"°××ÓÓ®ÁË");
+	    	    JOptionPane.showMessageDialog(null,"ç™½å­èµ¢äº†");
 	    	}else{
-	    		JOptionPane.showMessageDialog(null,"ºÚ×ÓÓ®ÁË");
+	    		JOptionPane.showMessageDialog(null,"é»‘å­èµ¢äº†");
 	    	}
 	    	 System.exit(0);
 	    }
