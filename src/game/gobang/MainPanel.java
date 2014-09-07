@@ -8,7 +8,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 /**
- * 五子棋的面板设计ydcun
+ * 五子棋的面板设计
  */
 public class MainPanel extends Panel implements MouseListener{
 	private static final int COLUMN = 16;//列数
